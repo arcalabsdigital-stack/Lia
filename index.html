@@ -227,11 +227,12 @@
             position: relative;
         }
 
-        .hero-image img {
+        .hero-image video {
             width: 100%;
             height: auto;
             border-radius: 1rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 16/9;
         }
 
         /* ==================== SEÇÕES ==================== */
@@ -435,11 +436,30 @@
             position: relative;
         }
 
-        .feature-image img {
+        .feature-image video {
             width: 100%;
             height: auto;
             border-radius: 1rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 16/9;
+        }
+
+        /* Estilos para sequências de vídeo */
+        .video-sequence {
+            position: relative;
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+        }
+
+        .video-sequence video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
         }
 
         .feature-list {
@@ -637,6 +657,10 @@
             .stat-number {
                 font-size: 2rem;
             }
+
+            .video-sequence, .hero-image video {
+                aspect-ratio: 16/9;
+            }
         }
 
         /* ==================== UTILITÁRIOS ==================== */
@@ -677,7 +701,7 @@
             }
         }
 
-        /* ==================== PLACEHOLDER IMAGES ==================== */
+        /* ==================== PLACEHOLDER IMAGES (mantido para outros placeholders) ==================== */
         .image-placeholder {
             background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
             border-radius: 1rem;
@@ -738,7 +762,9 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <div class="image-placeholder">[Dashboard LIA - Imagem aqui]</div>
+                        <video controls="false" autoplay="true" loop="true" muted="true" playsinline="true">
+                            <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481075/hero1_skknen.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -780,7 +806,14 @@
                 </div>
                 <div class="features-grid">
                     <div class="feature-image">
-                        <div class="image-placeholder">[Fluxo de Automação - Imagem aqui]</div>
+                        <div class="video-sequence">
+                            <video id="video1-automation" controls="false" muted="true" playsinline="true" autoplay="true">
+                                <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481090/qualificacao_ootbz2.mp4" type="video/mp4">
+                            </video>
+                            <video id="video2-automation" controls="false" muted="true" playsinline="true" style="display: none;">
+                                <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765480979/1685878_Technology_Mobile_1280x720_hfurul.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                     <div>
                         <ul class="feature-list">
@@ -969,7 +1002,14 @@
                         </ul>
                     </div>
                     <div class="feature-image">
-                        <div class="image-placeholder">[Screenshot WhatsApp - Imagem aqui]</div>
+                        <div class="video-sequence">
+                            <video id="video1-whatsapp" controls="false" muted="true" playsinline="true" autoplay="true">
+                                <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481028/conversacional2_daxnls.mp4" type="video/mp4">
+                            </video>
+                            <video id="video2-whatsapp" controls="false" muted="true" playsinline="true" style="display: none;">
+                                <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481876/Conversacional_kow5oo.mp4" type="video/mp4">
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -980,7 +1020,9 @@
                 <h2 style="margin-bottom: 2rem;">🎯 Qualificação Automática</h2>
                 <div class="features-grid">
                     <div class="feature-image">
-                        <div class="image-placeholder">[Screenshot Score - Imagem aqui]</div>
+                        <video controls="false" autoplay="true" loop="true" muted="true" playsinline="true">
+                            <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481090/qualificacao_ootbz2.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div>
                         <p style="font-size: 1.1rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">A IA identifica automaticamente quais leads são quentes e quais são frios. Entende orçamento, preferências e urgência.</p>
@@ -1009,7 +1051,9 @@
                         </ul>
                     </div>
                     <div class="feature-image">
-                        <div class="image-placeholder">[Screenshot Calendário - Imagem aqui]</div>
+                        <video controls="false" autoplay="true" loop="true" muted="true" playsinline="true">
+                            <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481107/WhatsApp_Video_2025-12-11_at_15.22.46_gutbvr.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -1020,7 +1064,9 @@
                 <h2 style="margin-bottom: 2rem;">📊 Dashboard Inteligente</h2>
                 <div class="features-grid">
                     <div class="feature-image">
-                        <div class="image-placeholder">[Screenshot Dashboard - Imagem aqui]</div>
+                        <video controls="false" autoplay="true" loop="true" muted="true" playsinline="true">
+                            <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481042/dashboard_-_Trim_a1zhge.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div>
                         <p style="font-size: 1.1rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">Controle total do seu pipeline de vendas em um único lugar. Todos os leads, visitas, scores e relatórios em tempo real.</p>
@@ -1392,8 +1438,41 @@
             document.getElementById('contactForm').reset();
         }
 
-        // Inicializar
+        // Lógica para sequências de vídeo
         document.addEventListener('DOMContentLoaded', function() {
+            // Sequência para "Como LIA Resolve Isso"
+            const video1Automation = document.getElementById('video1-automation');
+            const video2Automation = document.getElementById('video2-automation');
+            if (video1Automation && video2Automation) {
+                video1Automation.addEventListener('ended', function() {
+                    video1Automation.style.display = 'none';
+                    video2Automation.style.display = 'block';
+                    video2Automation.play();
+                });
+                video2Automation.addEventListener('ended', function() {
+                    video2Automation.style.display = 'none';
+                    video1Automation.style.display = 'block';
+                    video1Automation.play();
+                });
+            }
+
+            // Sequência para IA Conversacional (WhatsApp)
+            const video1Whatsapp = document.getElementById('video1-whatsapp');
+            const video2Whatsapp = document.getElementById('video2-whatsapp');
+            if (video1Whatsapp && video2Whatsapp) {
+                video1Whatsapp.addEventListener('ended', function() {
+                    video1Whatsapp.style.display = 'none';
+                    video2Whatsapp.style.display = 'block';
+                    video2Whatsapp.play();
+                });
+                video2Whatsapp.addEventListener('ended', function() {
+                    video2Whatsapp.style.display = 'none';
+                    video1Whatsapp.style.display = 'block';
+                    video1Whatsapp.play();
+                });
+            }
+
+            // Inicializar navegação
             const firstNavLink = document.querySelector('.nav-link');
             if (firstNavLink) {
                 firstNavLink.classList.add('active');

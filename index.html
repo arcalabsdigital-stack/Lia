@@ -233,6 +233,7 @@
             border-radius: 1rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
             aspect-ratio: 16/9;
+            object-fit: cover;
         }
 
         /* ==================== SEÇÕES ==================== */
@@ -442,6 +443,18 @@
             border-radius: 1rem;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
             aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        /* Crop específico para dashboard video - corta topo e enquadra retangular sem bordas */
+        .dashboard-video {
+            object-position: top 20% center; /* Ajusta para cortar mais do topo se necessário */
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
         }
 
         /* Estilos para sequências de vídeo */
@@ -658,7 +671,7 @@
                 font-size: 2rem;
             }
 
-            .video-sequence, .hero-image video {
+            .video-sequence, .hero-image video, .dashboard-video {
                 aspect-ratio: 16/9;
             }
         }
@@ -726,7 +739,7 @@
                 <li><a onclick="goToPage('casos')" class="nav-link">Casos de Sucesso</a></li>
                 <li><a onclick="goToPage('contato')" class="nav-link">Contato</a></li>
             </ul>
-            <button class="nav-cta" onclick="goToPage('contato')">Agendar Demo</button>
+            <a href="https://wa.me/5547992291756?text=Olá! Gostaria de agendar uma demo da LIA." class="nav-cta" target="_blank">Agendar Demo</a>
         </div>
     </nav>
 
@@ -740,7 +753,7 @@
                         <h1>Sua IA <span class="highlight">Vende 24/7</span>.<br>Você Apenas Fecha o Contrato.</h1>
                         <p>Automatize o atendimento de leads, qualifique clientes e agende visitas enquanto você dorme. Aumente vendas em até 62% sem contratar mais gente.</p>
                         <div class="hero-buttons">
-                            <button class="btn-primary" onclick="goToPage('contato')">Agendar Demo Gratuita</button>
+                            <a href="https://wa.me/5547992291756?text=Olá! Gostaria de agendar uma demo gratuita da LIA." class="btn-primary" target="_blank">Agendar Demo Gratuita</a>
                             <button class="btn-secondary" onclick="goToPage('funcionalidades')">Conhecer Funcionalidades</button>
                         </div>
                         <div style="margin-top: 2rem;">
@@ -970,7 +983,7 @@
                 <div class="cta-section">
                     <h2>Pronto para Aumentar Suas Vendas?</h2>
                     <p>Assista uma demo ao vivo e veja LIA em ação. Sem compromisso.</p>
-                    <button class="btn-primary" onclick="goToPage('contato')" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem;">Agendar Demo Gratuita</button>
+                    <a href="https://wa.me/5547992291756?text=Olá! Estou pronto para aumentar minhas vendas com a LIA. Pode me ajudar?" class="btn-primary" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem; text-decoration: none; border-radius: 0.5rem;" target="_blank">Agendar Demo Gratuita</a>
                     <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">⏰ Próxima turma: Quinta-feira 14h | ⚠️ Apenas 5 vagas</p>
                 </div>
             </div>
@@ -1064,7 +1077,7 @@
                 <h2 style="margin-bottom: 2rem;">📊 Dashboard Inteligente</h2>
                 <div class="features-grid">
                     <div class="feature-image">
-                        <video controls="false" autoplay="true" loop="true" muted="true" playsinline="true">
+                        <video class="dashboard-video" controls="false" autoplay="true" loop="true" muted="true" playsinline="true">
                             <source src="https://res.cloudinary.com/dtgcobo29/video/upload/v1765481042/dashboard_-_Trim_a1zhge.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -1086,7 +1099,7 @@
                 <div class="cta-section">
                     <h2>Quer ver todas as funcionalidades em ação?</h2>
                     <p>Agende uma demo gratuita e veja LIA funcionando.</p>
-                    <button class="btn-primary" onclick="goToPage('contato')" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem;">Agendar Demo Gratuita</button>
+                    <a href="https://wa.me/5547992291756?text=Olá! Quero ver as funcionalidades da LIA em ação." class="btn-primary" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem; text-decoration: none; border-radius: 0.5rem;" target="_blank">Agendar Demo Gratuita</a>
                 </div>
             </div>
         </section>
@@ -1246,7 +1259,7 @@
                 <div class="cta-section">
                     <h2>Quer ter um resultado como esses?</h2>
                     <p>Agende uma demo gratuita e veja como LIA pode transformar seu negócio.</p>
-                    <button class="btn-primary" onclick="goToPage('contato')" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem;">Agendar Demo Gratuita</button>
+                    <a href="https://wa.me/5547992291756?text=Olá! Vi os casos de sucesso e quero resultados assim para minha empresa." class="btn-primary" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem; text-decoration: none; border-radius: 0.5rem;" target="_blank">Agendar Demo Gratuita</a>
                 </div>
             </div>
         </section>
@@ -1322,7 +1335,7 @@
                             <h4 style="color: var(--cor-primaria); margin-bottom: 1.5rem; font-size: 1.1rem;">Dúvidas?</h4>
                             <div style="margin-bottom: 1.5rem;">
                                 <p style="font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 0.5rem;">📞 Telefone</p>
-                                <p style="font-size: 1.1rem; font-weight: 600; color: var(--cor-texto);">(11) 9999-9999</p>
+                                <a href="https://wa.me/5547992291756?text=Olá! Tenho uma dúvida sobre a LIA." style="font-size: 1.1rem; font-weight: 600; color: var(--cor-texto); text-decoration: none;" target="_blank">(47) 99229-1756</a>
                             </div>
                             <div style="margin-bottom: 1.5rem;">
                                 <p style="font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 0.5rem;">📧 Email</p>
@@ -1364,7 +1377,7 @@
             <div>
                 <h4>Contato</h4>
                 <ul>
-                    <li>📞 (11) 9999-9999</li>
+                    <li><a href="https://wa.me/5547992291756?text=Olá! Entre em contato via WhatsApp." target="_blank">📞 (47) 99229-1756</a></li>
                     <li>📧 contato@lia.com.br</li>
                     <li>💬 Chat ao Vivo</li>
                 </ul>
@@ -1372,9 +1385,9 @@
             <div>
                 <h4>Redes Sociais</h4>
                 <ul>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/lia.conecta/" target="_blank">Instagram</a></li>
+                    <li><a href="https://wa.me/5547992291756?text=Olá! Vamos conversar no WhatsApp?" target="_blank">WhatsApp</a></li>
                 </ul>
             </div>
         </div>

@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIA - Sua IA Vende 24/7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cor-primaria: #10b981;
+            --cor-secundaria: #3b82f6;
+            --cor-destaque: #f59e0b;
+            --cor-roxo: #8b5cf6;
+            --cor-fundo: #f8fafc;
+            --cor-texto: #1e293b;
+            --cor-texto-claro: #64748b;
+            --cor-borda: #e2e8f0;
+            --cor-branco: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--cor-texto);
+            line-height: 1.6;
+            background-color: var(--cor-branco);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ==================== NAVEGAÇÃO ==================== */
+        nav {
+            background-color: var(--cor-branco);
+            padding: 1.25rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--cor-borda);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--cor-primaria);
+            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cor-texto);
+            cursor: pointer;
+            transition: color 0.3s;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-primaria);
+        }
+
+        .nav-links a.active {
+            color: var(--cor-primaria);
+            font-weight: 600;
+        }
+
+        .nav-cta {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .nav-cta:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+
+        /* ==================== CONTAINER ==================== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--cor-texto);
+        }
+
+        .hero-text h1 .highlight {
+            color: var(--cor-primaria);
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--cor-texto-claro);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--cor-primaria);
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--cor-primaria);
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--cor-primaria);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ==================== SEÇÕES ==================== */
+        section {
+            padding: 5rem 0;
+        }
+
+        section.light {
+            background-color: var(--cor-fundo);
+        }
+
+        section.white {
+            background-color: white;
+        }
+
+        /* ==================== TÍTULOS DE SEÇÃO ==================== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+            color: var(--cor-texto);
+        }
+
+        .section-title p {
+            font-size: 1.15rem;
+            color: var(--cor-texto-claro);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== CARDS ==================== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid var(--cor-borda);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            border-color: var(--cor-primaria);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            color: var(--cor-texto);
+        }
+
+        .card p {
+            color: var(--cor-texto-claro);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.8;
+        }
+
+        .card-link {
+            color: var(--cor-primaria);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .card-link:hover {
+            gap: 1rem;
+        }
+
+        /* ==================== STATS ==================== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, #059669 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* ==================== TESTIMONIALS ==================== */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background-color: white;
+            border: 1px solid var(--cor-borda);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .testimonial:hover {
+            border-color: var(--cor-primaria);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .testimonial-stars {
+            color: var(--cor-destaque);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--cor-texto-claro);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .testimonial-info h4 {
+            color: var(--cor-texto);
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .testimonial-info p {
+            color: var(--cor-texto-claro);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== FEATURES ==================== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .feature-image {
+            position: relative;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--cor-primaria);
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-list li p {
+            color: var(--cor-texto-claro);
+            line-height: 1.8;
+        }
+
+        /* ==================== FORMULÁRIO ==================== */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: var(--cor-texto);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            border: 1px solid var(--cor-borda);
+            border-radius: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--cor-primaria);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        footer h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        footer a:hover {
+            color: var(--cor-primaria);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 2rem;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* ==================== PÁGINA OCULTA ==================== */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* ==================== RESPONSIVO ==================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* ==================== UTILITÁRIOS ==================== */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-2 {
+            margin-top: 2rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== PLACEHOLDER IMAGES ==================== */
+        .image-placeholder {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dbeafe 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-texto-claro);
+            font-weight: 600;
+            font-size: 1.1rem;
+            aspect-ratio: 16/9;
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== NAVEGAÇÃO ==================== -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" onclick="goToPage('home')">LIA</div>
+            <ul class="nav-links">
+                <li><a onclick="goToPage('home')" class="nav-link active">Home</a></li>
+                <li><a onclick="goToPage('funcionalidades')" class="nav-link">Funcionalidades</a></li>
+                <li><a onclick="goToPage('casos')" class="nav-link">Casos de Sucesso</a></li>
+                <li><a onclick="goToPage('contato')" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="nav-cta" onclick="goToPage('contato')">Agendar Demo</button>
+        </div>
+    </nav>
+
+    <!-- ==================== PÁGINA HOME ==================== -->
+    <div id="home" class="page active">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Sua IA <span class="highlight">Vende 24/7</span>.<br>Você Apenas Fecha o Contrato.</h1>
+                        <p>Automatize o atendimento de leads, qualifique clientes e agende visitas enquanto você dorme. Aumente vendas em até 62% sem contratar mais gente.</p>
+                        <div class="hero-buttons">
+                            <button class="btn-primary" onclick="goToPage('contato')">Agendar Demo Gratuita</button>
+                            <button class="btn-secondary" onclick="goToPage('funcionalidades')">Conhecer Funcionalidades</button>
+                        </div>
+                        <div style="margin-top: 2rem;">
+                            <p style="font-size: 0.95rem; color: var(--cor-texto-claro); margin-bottom: 1rem;">Confie em empresas como:</p>
+                            <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="color: var(--cor-primaria); font-weight: 700;">MM</span>
+                                    <span style="color: var(--cor-texto-claro); font-size: 0.9rem;">Imóveis</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="color: var(--cor-primaria); font-weight: 700;">CR</span>
+                                    <span style="color: var(--cor-texto-claro); font-size: 0.9rem;">Imóveis</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="color: var(--cor-primaria); font-weight: 700;">Gastão</span>
+                                    <span style="color: var(--cor-texto-claro); font-size: 0.9rem;">Imóveis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-placeholder">[Dashboard LIA - Imagem aqui]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROBLEMA -->
+        <section class="light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>O Problema que Sua Imobiliária Enfrenta</h2>
+                    <p>Corretores ocupados, leads caindo, sem padronização. Resultado: receita perdida.</p>
+                </div>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🕐</div>
+                        <h3>5+ Horas em WhatsApp</h3>
+                        <p>Seus corretores gastam mais tempo respondendo mensagens do que vendendo imóveis.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📉</div>
+                        <h3>40% dos Leads Caem</h3>
+                        <p>Muitos clientes nunca são respondidos porque o corretor está ocupado.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🎭</div>
+                        <h3>Sem Padronização</h3>
+                        <p>Cada corretor atende de um jeito. Marca inconsistente e profissionalismo questionável.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUÇÃO -->
+        <section class="white">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Como LIA Resolve Isso</h2>
+                    <p>Automação inteligente que qualifica leads, agenda visitas e deixa seu corretor livre para vender.</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-image">
+                        <div class="image-placeholder">[Fluxo de Automação - Imagem aqui]</div>
+                    </div>
+                    <div>
+                        <ul class="feature-list">
+                            <li>
+                                <p><strong>IA Conversacional 24/7</strong><br>Responde clientes noite, fim de semana, feriado. Conversa humanizada que não parece robô.</p>
+                            </li>
+                            <li>
+                                <p><strong>Qualificação Automática</strong><br>Identifica leads quentes vs frios. Calcula score e prioridades automaticamente.</p>
+                            </li>
+                            <li>
+                                <p><strong>Agendamento Automático</strong><br>IA propõe datas, cliente confirma. Visita entra no sistema sem idas e vindas.</p>
+                            </li>
+                            <li>
+                                <p><strong>Resumo Mastigado</strong><br>Corretor recebe: necessidades + orçamento + preferências. Pronto para vender.</p>
+                            </li>
+                            <li>
+                                <p><strong>Dashboard Inteligente</strong><br>Todos os leads em um lugar. Alertas, scores, relatórios em tempo real.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULTADOS -->
+        <section class="light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Resultados Reais de Clientes</h2>
+                    <p>Veja o impacto que LIA teve em imobiliárias como a sua.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">+40%</div>
+                        <div class="stat-label">Aumento em Vendas</div>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">MM Imóveis - 3 meses</p>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, var(--cor-secundaria) 0%, #2563eb 100%);">
+                        <div class="stat-number">+62%</div>
+                        <div class="stat-label">Aumento em Vendas</div>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">CR Imóveis - 4 meses</p>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, var(--cor-roxo) 0%, #7c3aed 100%);">
+                        <div class="stat-number">+47%</div>
+                        <div class="stat-label">Aumento em Vendas</div>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">Gastão Imóveis - 2 meses</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section class="white">
+            <div class="container">
+                <div class="section-title">
+                    <h2>O Que Nossos Clientes Dizem</h2>
+                    <p>Histórias reais de imobiliárias que transformaram seus negócios com LIA.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Implementamos LIA há 3 meses e foi transformador. Nossos corretores agora focam em vender, não em responder WhatsApp. As vendas cresceram 40% e nenhum lead cai mais."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MS</div>
+                            <div class="testimonial-info">
+                                <h4>Marcos Silva</h4>
+                                <p>Gerente de Vendas, MM Imóveis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Como construtora, precisávamos padronizar o atendimento. LIA fez isso automaticamente. Nossas vendas cresceram 62% em 4 meses e conseguimos escalar sem contratar mais vendedores."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">CR</div>
+                            <div class="testimonial-info">
+                                <h4>Carla Ribeiro</h4>
+                                <p>Proprietária, CR Imóveis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Éramos tradicional com corretores antigos. Tinha medo que não aceitassem IA. Mas LIA foi perfeita: IA faz o trabalho chato, corretor faz o trabalho que paga. Melhor investimento que fizemos."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">GS</div>
+                            <div class="testimonial-info">
+                                <h4>Gastão Santos</h4>
+                                <p>Diretor, Gastão Imóveis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPARAÇÃO -->
+        <section class="light">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Antes e Depois de LIA</h2>
+                    <p>Veja a transformação que seus números podem ter.</p>
+                </div>
+                <div style="overflow-x: auto; margin-top: 2rem;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background-color: var(--cor-primaria); color: white;">
+                                <th style="padding: 1.25rem; text-align: left; font-weight: 600;">Métrica</th>
+                                <th style="padding: 1.25rem; text-align: center; font-weight: 600;">Antes</th>
+                                <th style="padding: 1.25rem; text-align: center; font-weight: 600;">Depois</th>
+                                <th style="padding: 1.25rem; text-align: center; font-weight: 600;">Ganho</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--cor-borda);">
+                                <td style="padding: 1.25rem; font-weight: 600;">Vendas/Mês</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">11</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">16</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-primaria); font-weight: 600;">+45%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cor-borda);">
+                                <td style="padding: 1.25rem; font-weight: 600;">Horas em WhatsApp/Dia</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">5h</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">1h</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-primaria); font-weight: 600;">-80%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cor-borda);">
+                                <td style="padding: 1.25rem; font-weight: 600;">Taxa de Resposta</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">60%</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">100%</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-primaria); font-weight: 600;">+40%</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--cor-borda);">
+                                <td style="padding: 1.25rem; font-weight: 600;">Leads Perdidos/Mês</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">8</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">0</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-primaria); font-weight: 600;">-100%</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 1.25rem; font-weight: 600;">Tempo de Resposta</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">4-6h</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-texto-claro);">2 min</td>
+                                <td style="padding: 1.25rem; text-align: center; color: var(--cor-primaria); font-weight: 600;">-99%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="white">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Pronto para Aumentar Suas Vendas?</h2>
+                    <p>Assista uma demo ao vivo e veja LIA em ação. Sem compromisso.</p>
+                    <button class="btn-primary" onclick="goToPage('contato')" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem;">Agendar Demo Gratuita</button>
+                    <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">⏰ Próxima turma: Quinta-feira 14h | ⚠️ Apenas 5 vagas</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== PÁGINA FUNCIONALIDADES ==================== -->
+    <div id="funcionalidades" class="page">
+        <section class="hero" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Funcionalidades LIA</h2>
+                    <p>Tudo que você precisa para automatizar vendas e aumentar receita.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">🤖 IA Conversacional 24/7</h2>
+                <div class="features-grid">
+                    <div>
+                        <p style="font-size: 1.1rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">A IA LIA responde clientes a qualquer hora. Noite, fim de semana, feriado - sempre pronta. Conversa humanizada que não parece robô.</p>
+                        <ul class="feature-list">
+                            <li><p>Suporta WhatsApp e Instagram</p></li>
+                            <li><p>Responde em tempo real (segundos)</p></li>
+                            <li><p>Qualifica enquanto conversa</p></li>
+                            <li><p>Integração com seu número atual</p></li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <div class="image-placeholder">[Screenshot WhatsApp - Imagem aqui]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="light">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">🎯 Qualificação Automática</h2>
+                <div class="features-grid">
+                    <div class="feature-image">
+                        <div class="image-placeholder">[Screenshot Score - Imagem aqui]</div>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.1rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">A IA identifica automaticamente quais leads são quentes e quais são frios. Entende orçamento, preferências e urgência.</p>
+                        <ul class="feature-list">
+                            <li><p>Score automático de cada cliente</p></li>
+                            <li><p>Identifica leads quentes vs frios</p></li>
+                            <li><p>Entende orçamento do cliente</p></li>
+                            <li><p>Priorização automática</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="white">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">📅 Agendamento Automático</h2>
+                <div class="features-grid">
+                    <div>
+                        <p style="font-size: 1.1rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">Sem mais idas e vindas de mensagens. A IA propõe datas, cliente confirma, visita entra no sistema automaticamente.</p>
+                        <ul class="feature-list">
+                            <li><p>IA propõe múltiplas datas/horários</p></li>
+                            <li><p>Cliente escolhe e confirma</p></li>
+                            <li><p>Sincroniza com Dashboard</p></li>
+                            <li><p>Notificação automática ao corretor</p></li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <div class="image-placeholder">[Screenshot Calendário - Imagem aqui]</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="light">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">📊 Dashboard Inteligente</h2>
+                <div class="features-grid">
+                    <div class="feature-image">
+                        <div class="image-placeholder">[Screenshot Dashboard - Imagem aqui]</div>
+                    </div>
+                    <div>
+                        <p style="font-size: 1.1rem; color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">Controle total do seu pipeline de vendas em um único lugar. Todos os leads, visitas, scores e relatórios em tempo real.</p>
+                        <ul class="feature-list">
+                            <li><p>Todos os leads centralizados</p></li>
+                            <li><p>Visitas agendadas com alertas</p></li>
+                            <li><p>Score e priorização automática</p></li>
+                            <li><p>Relatórios em tempo real</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="white">
+            <div class="container text-center">
+                <div class="cta-section">
+                    <h2>Quer ver todas as funcionalidades em ação?</h2>
+                    <p>Agende uma demo gratuita e veja LIA funcionando.</p>
+                    <button class="btn-primary" onclick="goToPage('contato')" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem;">Agendar Demo Gratuita</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== PÁGINA CASOS DE SUCESSO ==================== -->
+    <div id="casos" class="page">
+        <section class="hero" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Casos de Sucesso</h2>
+                    <p>Veja como imobiliárias e construtoras aumentaram vendas com LIA.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">MM Imóveis: +40% em Vendas</h2>
+                <div class="two-column">
+                    <div>
+                        <div class="image-placeholder" style="aspect-ratio: 1/1;">[Foto MM Imóveis - Imagem aqui]</div>
+                    </div>
+                    <div>
+                        <div style="background-color: var(--cor-fundo); padding: 2rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Período</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-primaria);">3 meses</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Crescimento</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-primaria);">+40%</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Vendas/Mês</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-primaria);">10 → 14</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">ROI</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-primaria);">45 dias</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 style="margin-bottom: 1rem;">Contexto</h3>
+                        <p style="color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">Imobiliária de médio porte com 8 corretores. Empresa tradicional, mas enfrentava desafios de produtividade e leads caindo.</p>
+                        <h3 style="margin-bottom: 1rem;">Resultado</h3>
+                        <ul class="feature-list">
+                            <li><p>Vendas: 10 → 14/mês (+40%)</p></li>
+                            <li><p>Tempo em WhatsApp: 5h → 1h (-80%)</p></li>
+                            <li><p>Taxa de resposta: 60% → 100%</p></li>
+                            <li><p>Leads perdidos: 8 → 0/mês</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background-color: var(--cor-fundo); padding: 2rem; border-radius: 0.75rem; margin-top: 2rem;">
+                    <p style="font-style: italic; color: var(--cor-texto-claro); margin-bottom: 1rem; line-height: 1.8;">"Implementamos LIA há 3 meses e foi transformador. Nossos corretores agora focam em vender, não em responder WhatsApp. As vendas cresceram 40% e nenhum lead cai mais. Recomendo para qualquer imobiliária que quer crescer."</p>
+                    <p style="font-weight: 600; color: var(--cor-texto);">— Marcos Silva, Gerente de Vendas, MM Imóveis</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="light">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">CR Imóveis: +62% em Vendas</h2>
+                <div class="two-column">
+                    <div>
+                        <div class="image-placeholder" style="aspect-ratio: 1/1;">[Foto CR Imóveis - Imagem aqui]</div>
+                    </div>
+                    <div>
+                        <div style="background-color: white; padding: 2rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Período</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-secundaria);">4 meses</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Crescimento</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-secundaria);">+62%</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Vendas/Mês</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-secundaria);">8 → 13</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">ROI</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-secundaria);">60 dias</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 style="margin-bottom: 1rem;">Contexto</h3>
+                        <p style="color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">Construtora com 3 empreendimentos e 5 vendedores. Empresa em crescimento, mas com processos desorganizados.</p>
+                        <h3 style="margin-bottom: 1rem;">Resultado</h3>
+                        <ul class="feature-list">
+                            <li><p>Vendas: 8 → 13/mês (+62%)</p></li>
+                            <li><p>Taxa de conversão: 18% → 35%</p></li>
+                            <li><p>Escalou sem contratar mais gente</p></li>
+                            <li><p>Vendedores 50% mais produtivos</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background-color: white; padding: 2rem; border-radius: 0.75rem; margin-top: 2rem;">
+                    <p style="font-style: italic; color: var(--cor-texto-claro); margin-bottom: 1rem; line-height: 1.8;">"Como construtora, precisávamos padronizar o atendimento. LIA fez isso automaticamente. Nossas vendas cresceram 62% em 4 meses e conseguimos escalar sem contratar mais vendedores."</p>
+                    <p style="font-weight: 600; color: var(--cor-texto);">— Carla Ribeiro, Proprietária, CR Imóveis</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white">
+            <div class="container">
+                <h2 style="margin-bottom: 2rem;">Gastão Imóveis: +47% em Vendas</h2>
+                <div class="two-column">
+                    <div>
+                        <div class="image-placeholder" style="aspect-ratio: 1/1;">[Foto Gastão Imóveis - Imagem aqui]</div>
+                    </div>
+                    <div>
+                        <div style="background-color: var(--cor-fundo); padding: 2rem; border-radius: 0.75rem; margin-bottom: 1.5rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Período</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-roxo);">2 meses</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Crescimento</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-roxo);">+47%</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">Vendas/Mês</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-roxo);">15 → 22</p>
+                                </div>
+                                <div>
+                                    <p style="font-size: 0.9rem; color: var(--cor-texto-claro);">ROI</p>
+                                    <p style="font-size: 1.5rem; font-weight: 700; color: var(--cor-roxo);">50 dias</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3 style="margin-bottom: 1rem;">Contexto</h3>
+                        <p style="color: var(--cor-texto-claro); margin-bottom: 1.5rem; line-height: 1.8;">Imobiliária tradicional com 12 corretores. Bem estabelecida, mas com processos antigos e resistência à tecnologia.</p>
+                        <h3 style="margin-bottom: 1rem;">Resultado</h3>
+                        <ul class="feature-list">
+                            <li><p>Vendas: 15 → 22/mês (+47%)</p></li>
+                            <li><p>Corretores economizaram 3-4h/dia</p></li>
+                            <li><p>Taxa de resposta: 100%</p></li>
+                            <li><p>Corretores mais felizes</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="background-color: var(--cor-fundo); padding: 2rem; border-radius: 0.75rem; margin-top: 2rem;">
+                    <p style="font-style: italic; color: var(--cor-texto-claro); margin-bottom: 1rem; line-height: 1.8;">"Éramos tradicional com corretores antigos. Tinha medo que não aceitassem IA. Mas LIA foi perfeita: IA faz o trabalho chato, corretor faz o trabalho que paga. Melhor investimento que fizemos."</p>
+                    <p style="font-weight: 600; color: var(--cor-texto);">— Gastão Santos, Diretor, Gastão Imóveis</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="light">
+            <div class="container">
+                <div class="cta-section">
+                    <h2>Quer ter um resultado como esses?</h2>
+                    <p>Agende uma demo gratuita e veja como LIA pode transformar seu negócio.</p>
+                    <button class="btn-primary" onclick="goToPage('contato')" style="background-color: white; color: var(--cor-primaria); border: none; padding: 1.25rem 2.5rem; font-size: 1.1rem;">Agendar Demo Gratuita</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== PÁGINA CONTATO ==================== -->
+    <div id="contato" class="page">
+        <section class="hero" style="padding: 4rem 0;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Agende Sua Demo Gratuita</h2>
+                    <p>Veja LIA em ação. Sem compromisso. Sem cartão de crédito.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="white">
+            <div class="container">
+                <div class="two-column">
+                    <div>
+                        <h3 style="margin-bottom: 2rem;">Preencha o Formulário</h3>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Nome *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Telefone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Empresa *</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="type">Tipo de Negócio *</label>
+                                <select id="type" name="type" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="imobiliaria">Imobiliária</option>
+                                    <option value="construtora">Construtora</option>
+                                    <option value="agente">Agente Autônomo</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Melhor horário para demo *</label>
+                                <select id="time" name="time" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="segunda-10">Segunda 10h</option>
+                                    <option value="terca-14">Terça 14h</option>
+                                    <option value="quarta-10">Quarta 10h</option>
+                                    <option value="quinta-14">Quinta 14h</option>
+                                    <option value="sexta-10">Sexta 10h</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;">Agendar Demo Gratuita</button>
+                        </form>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--cor-texto-claro);">* Campos obrigatórios</p>
+                    </div>
+
+                    <div>
+                        <h3 style="margin-bottom: 2rem;">Informações de Contato</h3>
+                        <div style="background-color: var(--cor-fundo); padding: 2rem; border-radius: 0.75rem; margin-bottom: 2rem;">
+                            <h4 style="color: var(--cor-primaria); margin-bottom: 1.5rem; font-size: 1.1rem;">Dúvidas?</h4>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p style="font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 0.5rem;">📞 Telefone</p>
+                                <p style="font-size: 1.1rem; font-weight: 600; color: var(--cor-texto);">(11) 9999-9999</p>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p style="font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 0.5rem;">📧 Email</p>
+                                <p style="font-size: 1.1rem; font-weight: 600; color: var(--cor-texto);">contato@lia.com.br</p>
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p style="font-size: 0.9rem; color: var(--cor-texto-claro); margin-bottom: 0.5rem;">💬 Chat ao Vivo</p>
+                                <p style="font-size: 1.1rem; font-weight: 600; color: var(--cor-texto);">Seg-Sex 9h-18h</p>
+                            </div>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, var(--cor-primaria) 0%, #059669 100%); color: white; padding: 2rem; border-radius: 0.75rem;">
+                            <h4 style="margin-bottom: 1rem; color: white;">⏰ Próxima Turma</h4>
+                            <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Quinta-feira 14h</p>
+                            <p style="font-size: 0.95rem; opacity: 0.9;">Apenas 5 vagas disponíveis</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div>
+                <h4>LIA</h4>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Sua IA Vende 24/7. Você Apenas Fecha o Contrato.</p>
+            </div>
+            <div>
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a onclick="goToPage('home')">Home</a></li>
+                    <li><a onclick="goToPage('funcionalidades')">Funcionalidades</a></li>
+                    <li><a onclick="goToPage('casos')">Casos de Sucesso</a></li>
+                    <li><a onclick="goToPage('contato')">Contato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <ul>
+                    <li>📞 (11) 9999-9999</li>
+                    <li>📧 contato@lia.com.br</li>
+                    <li>💬 Chat ao Vivo</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Redes Sociais</h4>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 LIA. Todos os direitos reservados.</p>
+            <p>Desenvolvido para imobiliárias que querem crescer.</p>
+        </div>
+    </footer>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // Navegação entre páginas
+        function goToPage(pageId) {
+            // Ocultar todas as páginas
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Mostrar página selecionada
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+            }
+
+            // Atualizar navegação
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
+            
+            const activeLink = Array.from(navLinks).find(link => {
+                const text = link.textContent.toLowerCase();
+                return (pageId === 'home' && text === 'home') ||
+                       (pageId === 'funcionalidades' && text === 'funcionalidades') ||
+                       (pageId === 'casos' && text === 'casos de sucesso') ||
+                       (pageId === 'contato' && text === 'contato');
+            });
+            
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll para topo
+            window.scrollTo(0, 0);
+        }
+
+        // Formulário
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const type = document.getElementById('type').value;
+            const time = document.getElementById('time').value;
+
+            if (!name || !email || !phone || !company || !type || !time) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            alert(`Obrigado, ${name}! Sua demo foi agendada para ${time}.\n\nVocê receberá um email de confirmação em ${email}`);
+            document.getElementById('contactForm').reset();
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstNavLink = document.querySelector('.nav-link');
+            if (firstNavLink) {
+                firstNavLink.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
